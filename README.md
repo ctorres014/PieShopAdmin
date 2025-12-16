@@ -2,7 +2,7 @@
 Implementation PieShop using EF Core 
 
 # EF CORE - BUILDING DATA-DRIVEN
-==============================
+
 
 ## Package 
 - EntityFramework.Tools
@@ -10,7 +10,7 @@ Implementation PieShop using EF Core
 - Microsoft.AspNetCore.Diagnostics.EntityFramework
 
 # Migrations
-==========
 
-PM => 	add-migration <nameofmigrations>
-		update-database
+
+PM => 	- add-migration <nameofmigrations>
+		- update-database
