@@ -9,8 +9,8 @@ Implementation PieShop using EF Core
 - Microsoft.EntityFrameworkCore.SqlServer
 - Microsoft.AspNetCore.Diagnostics.EntityFramework
 
-# Migrations
+## Migrations
 
-
-PM => 	- add-migration <nameofmigrations>
-		- update-database
+### PM 	
+- add-migration `nameofmigrations`
+- update-database
