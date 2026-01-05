@@ -1,0 +1,40 @@
+﻿@model PieAddViewModel
+
+<form method="post" asp-controller="Pie" asp-action="Add">
+    <div class="mb-3">
+        <label asp-for="Pies.Name" class="form-label"></label>
+        <input asp-for="Pies.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pies.ShortDescription" class="form-label"></label>
+        <input asp-for="Pies.ShortDescription" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pies.LongDescription" class="form-label"></label>
+        <input asp-for="Pies.LongDescription" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pies.AllergyInformation" class="form-label"></label>
+        <input asp-for="Pies.AllergyInformation" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pies.Price" class="form-label"></label>
+        <input asp-for="Pies.Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Categories" class="form-label"></label>
+        <select asp-for="Pies.CategoryId" asp-items="Model.Categories"></select>
+    </div>
+
+    <input type="submit" value="Add pie" class="btn btn-primary" />
+
+</form>
+
+<div>
+    <a asp-controller="Pie" asp-action="Index">Back to overview</a>
+</div>
