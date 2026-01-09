@@ -8,4 +8,13 @@
     <UserSecretsId>1fe17375-0b41-41c9-be94-baee09a4c635</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.2.0-preview.1.26058.1" />
+    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.2.0-preview.1.26058.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BethanysPieShopAdmin\BethanysPieShopAdmin.csproj" />
+  </ItemGroup>
+
 </Project>

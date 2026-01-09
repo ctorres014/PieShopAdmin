@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
-  options.UseSqlServer(builder.Configuration.GetConnectionString("BethanysPieShopDbContextConnection")));
+  options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=BethanysPieShop;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IPieRepository, PieRepository>();
