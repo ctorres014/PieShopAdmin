@@ -9,10 +9,12 @@ namespace BethanysPieShopAdmin.Controllers
     public class PieController : Controller
     {
         private readonly IPieRepository _pieRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public PieController(IPieRepository pieRepository)
+        public PieController(IPieRepository pieRepository, ICategoryRepository categoryRepository)
         {
             _pieRepository = pieRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -56,6 +58,23 @@ namespace BethanysPieShopAdmin.Controllers
             };
             await _pieRepository.AddPie(pie);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> List(string category)
+        {
+            var pies = await _pieRepository.GetAllPiesAsync();
+            string? currentCategory = string.Empty;
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                pies = pies.Where(p => p.Category!.Name.Equals(category, StringComparison.OrdinalIgnoreCase));
+                currentCategory = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Name == category)?.Name;
+            }
+            else
+            {
+                pies = pies.OrderBy(p => p.PieId);
+            }
+                return View( new PieListViewModel() { CurrentCategory = currentCategory!, Pies = pies });
         }
     }
 }
